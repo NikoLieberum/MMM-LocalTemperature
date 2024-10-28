@@ -23,7 +23,7 @@
 #define DHT_ERROR_TIMEOUT 2
 
 // GLOBAL VARIABLES
-uint8_t dht_pin = 3;  // default GPIO 22 (wiringPi 3)
+uint8_t dht_pin = 3;  // default GPIO 22 (wiringPi 3) - https://pinout.xyz/pinout/wiringpi
 char mode = 'c';      // valid modes are c, f, k, h, j
 int data[5] = { 0, 0, 0, 0, 0 };
 int debug = 0;
