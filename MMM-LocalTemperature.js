@@ -8,7 +8,7 @@
  * MIT Licensed.
  */
 
-var axis, Log, config;
+var axis, Log; // removed config
 
 /**
  * Register the module with the MagicMirror program
