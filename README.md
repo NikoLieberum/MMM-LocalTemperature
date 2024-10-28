@@ -24,10 +24,8 @@ This module reads and displays temperature and humidity information from a senso
 To install the module, use your terminal to:
 1. Navigate to your MagicMirror's modules folder. If you are using the default installation directory, use the command:<br />`cd ~/MagicMirror/modules`
 2. Copy the module to your computer by executing the following command:<br />`git clone https://github.com/glitch452/MMM-LocalTemperature.git`
-3. Install the WiringPi library by executing the following command:<br />`sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y install build-essential wiringpi`
-    **Note:** If running on Raspberry Pi 4, use the following process to update wiringpi  
-    [http://wiringpi.com/wiringpi-updated-to-2-52-for-the-raspberry-pi-4b](http://wiringpi.com/wiringpi-updated-to-2-52-for-the-raspberry-pi-4b)
-4. Make sure the `DHT` program that reads the sensor data is executable by executing the following command:<br />`cd MMM-LocalTemperature && chmod +x DHT`
+3. Install the WiringPi library from [GitHub](https://github.com/WiringPi/WiringPi). Simply clone the repository and run ´./build´.
+4. Make sure the [DHT](Customizing the DHT Program) program that reads the sensor data is executable by executing the following command:<br />`cd MMM-LocalTemperature && chmod +x DHT`
 
 ## Using the module
 
@@ -98,6 +96,8 @@ Here are some diagrams that you may find useful when connecting your sensor.  Se
 The `DHT` program is a `c` coded program used to read the sensor data. A `c` program is required to read the sensor data because the data is transmitted by extremely short pulses of signal and the `c` code executes much faster than python.
 
 The included `DHT` program is something I pieced together based on code from [dht22 by nebulx29](https://github.com/nebulx29/dht22) and the [Python DHT Sensor Library by Adafruit](https://github.com/adafruit/Adafruit_Python_DHT).
+
+Verify that the correct pin is defined in `DHT.c`. Make sure the WiringPi pin number is set (you can find the WiringPi pin number for the GPIO pin [here](https://pinout.xyz/pinout/wiringpi)).
 
 If you would like to customize the `DHT` program, you can edit the file `DHT.c` with your favorite editor, then re-compile it using the following command: `cc -Wall DHT.c -o DHT -lwiringPi`
 
